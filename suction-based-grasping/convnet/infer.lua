@@ -13,7 +13,9 @@ require 'model.lua'
 -- Default user options
 options = {
   imgColorPath = 'demo/test-image.color.png',
+  CustomColorPath = '/home/son-skku/opencv_tutorial/rgbImage.png',
   imgDepthPath = 'demo/test-image.depth.png',
+  CustomDepthPath = '/home/son-skku/opencv_tutorial/depthImage.png',
   modelPath = 'suction-based-grasping-snapshot-10001.t7',
   resultsPath = 'demo/results.h5',
   outputScale = 1/8,
@@ -43,16 +45,16 @@ local input  = {torch.Tensor(1, 3, options.imgHeight, options.imgWidth),torch.Te
 local results = torch.Tensor(1,3,options.imgHeight*options.outputScale,options.imgWidth*options.outputScale):float()
 
 -- Load and pre-process color image (24-bit RGB PNG)
-print('Pre-processing color image: '..options.imgColorPath)
-local colorImg = image.load(options.imgColorPath)
+print('Pre-processing color image: '..options.CustomColorPath)
+local colorImg = image.load(options.CustomColorPath)
 for c=1,3 do
     colorImg[c]:add(-mean[c])
     colorImg[c]:div(std[c])
 end
 
 -- Load and pre-process depth image (16-bit PNG depth in deci-millimeters)
-print('Pre-processing depth image: '..options.imgDepthPath)
-local depth = image.load(options.imgDepthPath)
+print('Pre-processing depth image: '..options.CustomDepthPath)
+local depth = image.load(options.CustomDepthPath)
 depth = depth*65536/10000
 depth = depth:clamp(0.0,1.2) -- Depth range of Intel RealSense SR300
 local depthImg = depth:cat(depth,1):cat(depth,1)
