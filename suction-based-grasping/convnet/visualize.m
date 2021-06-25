@@ -2,10 +2,18 @@
 % affordance predictions
 
 % User options (change me)
-backgroundColorImage = 'demo/test-background.color.png';   % 24-bit RGB PNG
-backgroundDepthImage = 'demo/test-background.depth.png';   % 16-bit PNG depth in deci-millimeters
-inputColorImage = 'demo/test-image.color.png';             % 24-bit RGB PNG
-inputDepthImage = 'demo/test-image.depth.png';             % 16-bit PNG depth in deci-millimeters
+backgroundColorImage = '/home/son-skku/opencv_tutorial/rgbBakcground.png';   % 24-bit RGB PNG
+% Origin:'demo/test-background.color.png'
+% Custom:'/home/son-skku/opencv_tutorial/rgbBakcground.png'
+backgroundDepthImage = '/home/son-skku/opencv_tutorial/depthBakcground.png';   % 16-bit PNG depth in deci-millimeters
+% Origin:'demo/test-background.depth.png'
+% Custom:'/home/son-skku/opencv_tutorial/depthBakcground.png'
+inputColorImage = '/home/son-skku/opencv_tutorial/rgbImage.png';             % 24-bit RGB PNG
+% Origin:'demo/test-image.color.png'
+% Custom:'/home/son-skku/opencv_tutorial/rgbImage.png'
+inputDepthImage = '/home/son-skku/opencv_tutorial/depthImage.png';             % 16-bit PNG depth in deci-millimeters
+% Origin:'demo/test-image.depth.png'
+% Custom:'/home/son-skku/opencv_tutorial/depthImage.png'
 cameraIntrinsicsFile = 'demo/test-camera-intrinsics.txt';  % 3x3 camera intrinsics matrix
 resultsFile = 'demo/results.h5';                           % HDF5 ConvNet output file from running infer.lua
 
