@@ -2,7 +2,7 @@
 % suction-based affordances over the testing split of the grasping dataset
 
 % User options (change me)
-dataPath = '../data'; % Path to suction-based grasping dataset
+dataPath = '/home/a/arc-robot-dataset/local_data'; % Path to suction-based grasping dataset
 
 % Parse test split from dataset
 testSplit = textread(fullfile(dataPath,'test-split.txt'),'%s','delimiter','\n');
@@ -32,8 +32,8 @@ for sampleIdx = 1:length(testSplit)
     
     % Display input images and output suction-based grasping affordance scores
     subplot(1,3,1); imshow(inputColor); axis equal; title('Color'); 
-    subplot(1,3,2); imagesc(inputDepth); axis equal; title('Depth');
-    subplot(1,3,3); imagesc(suctionScores); axis equal; title('Prediction');
+    subplot(1,3,2); imagesc(inputDepth); axis equal; title('Depth'); colorbar;
+    subplot(1,3,3); imagesc(suctionScores); axis equal; title('Prediction'); colorbar;
     pause(0.1);
 end
 

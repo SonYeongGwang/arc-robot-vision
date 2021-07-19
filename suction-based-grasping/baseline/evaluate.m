@@ -2,7 +2,7 @@
 % baseline algorithm against manually annotated dataset (% precision)
 
 % User options (change me)
-dataPath = '../data'; % Path to suction-based grasping dataset
+dataPath = '/home/a/arc-robot-dataset/local_data'; % Path to suction-based grasping dataset
 
 % Parse test split from dataset
 testSplit = textread(fullfile(dataPath,'test-split.txt'),'%s','delimiter','\n');
@@ -41,11 +41,3 @@ end
 precision = sumTP/(sumTP + sumFP);
 recall = sumTP/(sumTP + sumFN);
 fprintf('Precision: %f\nRecall: %f\n',precision,recall);
-
-
-
-
-
-
-
-
