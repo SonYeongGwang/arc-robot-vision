@@ -13,10 +13,10 @@ require 'model.lua'
 -- Default user options
 options = {
   imgColorPath = 'demo/test-image.color.png',
-  CustomColorPath = '/home/son-skku/opencv_tutorial/rgbImage.png',
+  CustomColorPath = '/home/a/arc-robot-vision/suction-based-grasping/convnet/custom_images/rgbImage.png',
   imgDepthPath = 'demo/test-image.depth.png',
-  CustomDepthPath = '/home/son-skku/opencv_tutorial/depthImage.png',
-  modelPath = '/home/son-skku/arc-robot-data/trained_suction_grasping_convnet/suction-based-grasping-snapshot-10001.t7',
+  CustomDepthPath = '/home/a/arc-robot-vision/suction-based-grasping/convnet/custom_images/depthImage.png',
+  modelPath = '/home/a/arc-robot-data/suction-based-grasping-snapshot-10001.t7',
   resultsPath = 'demo/results.h5',
   outputScale = 1/8,
   imgHeight =  480,
