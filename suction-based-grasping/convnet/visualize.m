@@ -2,10 +2,10 @@
 % affordance predictions
 
 % User options (change me)
-backgroundColorImage = '/home/son-skku/opencv_tutorial/rgbBakcground.png';   % 24-bit RGB PNG
+backgroundColorImage = '/home/son-skku/opencv_tutorial/rgbBackground.png';   % 24-bit RGB PNG
 % Origin:'demo/test-background.color.png'
 % Custom:'/home/son-skku/opencv_tutorial/rgbBakcground.png'
-backgroundDepthImage = '/home/son-skku/opencv_tutorial/depthBakcground.png';   % 16-bit PNG depth in deci-millimeters
+backgroundDepthImage = '/home/son-skku/opencv_tutorial/depthBackground.png';   % 16-bit PNG depth in deci-millimeters
 % Origin:'demo/test-background.depth.png'
 % Custom:'/home/son-skku/opencv_tutorial/depthBakcground.png'
 inputColorImage = '/home/son-skku/opencv_tutorial/rgbImage.png';             % 24-bit RGB PNG
