@@ -53,3 +53,4 @@ figure(1); imshow(0.5*inputColor+0.5*affordanceMap);
 figure(2); imshow(surfaceNormalsMap);
 imwrite(0.5*inputColor+0.5*affordanceMap,'results.png')
 imwrite(surfaceNormalsMap,'normals.png')
+imwrite(affordanceMap,'affordanceMap.png')
