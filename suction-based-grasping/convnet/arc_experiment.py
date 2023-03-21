@@ -34,6 +34,7 @@ def get_suction_point_3d(depth_image: np, suction_point: np, cam_instance):
 
     ## select most similar point among the generated points
     target = np.array([X, Y, Z])
+    print("target:", target)
     target = np.reshape(target, (1, 3))
     index = np.linalg.norm((xyz-target), axis=1)
     index = np.argmin(index)
@@ -133,6 +134,8 @@ roi_mask = get_roi_mask(depth, prediction_map, cam)
 prediction_map = prediction_map * roi_mask
 
 max_prd = np.max(prediction_map)
+
+## ind[1]: x, ind[0]: y
 ind = np.unravel_index(np.argmax(prediction_map, axis=None), prediction_map.shape)
 
 prediction_map = (prediction_map*(255/max_prd)).astype(np.uint8)
@@ -147,7 +150,7 @@ cv2.circle(combined_heatmap, (ind[1], ind[0]), 3, (0, 255, 0), 2)
 cv2.imshow("test", combined_heatmap)
 cv2.waitKey()
 
-suction_point_2d = np.array([int(ind[1]), int(ind[0])])
+suction_point_2d = np.array([int(ind[0]), int(ind[1])])
 print("suction_point_2d:", suction_point_2d)
 
 point, normal = get_suction_point_3d(depth, suction_point_2d, cam)
