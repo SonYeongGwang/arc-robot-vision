@@ -9,6 +9,37 @@ import open3d as o3d
 
 from camera import IntelCamera
 
+def collision_avoidance(point, normal, cam_instance):
+
+    cam2marker = cam_instance.cam2marker
+    point = np.array([*point, 1]).T
+
+    ## suction point defined from the marker frame
+    point_marker = np.dot(cam2marker, point)
+    ## all the part of the bin is defined from the marker frame
+    ## ex) upper means the bin part on the -y area of the marker frame
+    ## ex) left means the bin part on the +x area of the marker frame
+
+    ## point on the upper 
+    if point_marker[1] < -cam_instance.origin_to_corner_y + 0.02:
+        print("--------------upper part--------------")
+
+    ## point on the bottom 
+    elif point_marker[1] > cam_instance.H-cam_instance.origin_to_corner_y - 0.02:
+        print("--------------bottom part--------------")
+
+    ## point on the left
+    elif point_marker[0] > cam_instance.W-cam_instance.origin_to_corner_x - 0.02:
+        print("--------------left part--------------")
+
+    ## point on the right
+    elif point_marker[0] < -cam_instance.origin_to_corner_x + 0.02:
+        print("--------------right part--------------")
+
+    # avoidance_normal = normal
+
+    # return avoidance_normal
+
 def get_suction_point_3d(depth_image: np, suction_point: np, cam_instance):
     global pcd
 
@@ -155,6 +186,8 @@ print("suction_point_2d:", suction_point_2d)
 
 point, normal = get_suction_point_3d(depth, suction_point_2d, cam)
 print("suction point:", point)
+
+collision_avoidance(point, normal, cam)
 
 msg = str(point[0])+','+str(point[1])+','+str(point[2])+','+str(normal[0])+','+str(normal[1])+','+str(normal[2])
 DATASock.send(msg.encode())
